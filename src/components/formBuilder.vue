@@ -13,10 +13,11 @@
             </component>
         </div>
 
+        <div>
+            <button type="submit" :disabled="disabled">submit</button>
+        </div>
+        <br>
         {{formValues}}
-        <!--                <div>
-                            <button type="submit" :disabled="disabled">submit</button>
-                        </div>-->
     </div>
 </template>
 
