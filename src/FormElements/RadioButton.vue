@@ -1,12 +1,10 @@
 <template>
     <div>
-        <label v-for="(option, key) in option"
-               :key="key">
-            <input
-                    type="radio"
-                    :name="name"
-                    :value="option.value"
-                    @input="$emit('input', $event.target.value)"/>
+        <label v-for="(option, key) in options" :key="key">
+            <input type="radio"
+                   :name="name"
+                   :value="option.value"
+                   @input="$emit('input', $event.target.value)"/>
             {{option.label}}
         </label>
     </div>
