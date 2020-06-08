@@ -26,7 +26,6 @@
     "type": "RadioButton",
     "label": "Best Framework",
     "name": "bestFramework",
-
     "params": {
       "options": [
         {
