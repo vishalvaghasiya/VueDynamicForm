@@ -1,21 +1,24 @@
 <template>
     <div>
-        <div v-for="(field , key) in config" :key="key">
+        <form>
+            <div class="form-group" v-for="(field , key) in config" :key="key">
 
-            <label>{{field.label}}</label>
+                <label>{{field.label}}</label>
 
-            <component :is="field.type"
-                       :name="field.name"
-                       :params="field.params"
-                       @input="updateField(field.name ,$event)"
-                       v-validate="field.validation"
-                       :data-vv-as="field.label">
-            </component>
-        </div>
-
-        <div>
-            <button type="submit" :disabled="disabled">submit</button>
-        </div>
+                <component :is="field.type"
+                           :name="field.name"
+                           :class="field.class"
+                           :params="field.params"
+                           v-validate="field.validation"
+                           :data-vv-as="field.label"
+                           @input="updateField(field.name ,$event)"
+                           class="form-control">
+                </component>
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                    else.</small>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
         <br>
         {{formValues}}
     </div>
@@ -23,9 +26,9 @@
 
 <script>
     import Vue from 'vue';
-    import Input from "../FormElements/Input";
-    import Checkbox from "../FormElements/Checkbox";
-    import RadioButton from "../FormElements/RadioButton";
+    import Input from "../FormElements/InputComponent";
+    import Checkbox from "../FormElements/CheckboxComponent";
+    import RadioButton from "../FormElements/RadioComponent";
 
     export default {
         name: "formBuilder",
@@ -34,20 +37,12 @@
             Input,
             Checkbox,
             RadioButton
-
         },
         data() {
             return {
                 formValues: {},
             }
         },
-        /*
-          computed: {
-            disabled() {
-              return Object.keys(this.fields).some(key => this.fields[key].invalid)
-              }
-          },*/
-
         created() {
             this.config.map(f => {
                 Vue.set(this.formValues, f.name, null)

@@ -1,0 +1,191 @@
+[
+  {
+    "type": "ImageComponent",
+    "label": "Business Logo",
+    "name": "businessLogo",
+    "placeholder": "upload business logo",
+    "validation": "required",
+    "order": "1",
+    "class": "col-12",
+    "datatype": {
+      "type": "image",
+      "size": {
+        "width": "100px",
+        "height": "100px"
+      },
+      "mime": ".jpg",
+      "uploadpath": ""
+    }
+  },
+  {
+    "type": "InputComponent",
+    "label": "Business Name",
+    "name": "businessName",
+    "placeholder": "Your Business Name",
+    "validation": "required",
+    "order": "2",
+    "class": "col-12"
+  },
+  {
+    "type": "CustomComponent",
+    "label": "Custom",
+    "name": "custom",
+    "custom": {
+      "options": [
+        {
+          "name": "Website",
+          "icon": "fas fa-desktop",
+          "url": "http://www.lindameyerinsurancebrokerage.com/"
+        },
+        {
+          "value": "1",
+          "label": "Vue js",
+          "name": "Email",
+          "icon": "far fa-envelope",
+          "url": "mailto:linda@myinsurancebrokerage.net"
+        },
+        {
+          "value": "1",
+          "label": "Vue js",
+          "name": "Phone",
+          "icon": "fas fa-mobile-alt",
+          "url": "tel:+14043037311"
+        },
+        {
+          "value": "1",
+          "label": "Vue js",
+          "name": "Office",
+          "icon": "fas fa-phone-alt",
+          "url": "tel:+8009614293"
+        },
+        {
+          "name": "Linkedin",
+          "icon": "fab fa-twitter",
+          "url": "https://twitter.com/InsuranceLinda"
+        },
+        {
+          "name": "Facebook",
+          "icon": "fab fa-facebook-f",
+          "url": "https://www.facebook.com/lindameyerinsurancebrokeragellc/"
+        },
+        {
+          "name": "Instagram",
+          "icon": "fab fa-instagram",
+          "url": "https://www.instagram.com/lindainsurance/"
+        },
+        {
+          "name": "Navigation",
+          "icon": "fas fa-map-marker-alt",
+          "url": "https://www.google.com/maps?q=5100+Westheimer+Rd,+Suite+200+Houston,+Texas+United+States"
+        }
+      ]
+    }
+  },
+  {
+    "type": "TextArea",
+    "label": "About Us",
+    "name": "About Us",
+    "placeholder": "About Us",
+    "validation": "required",
+    "class": "col-6"
+  },
+  {
+    "type": "FormComponent",
+    "formData": {
+      "option": [
+        {
+          "label": "Name",
+          "type": "Input",
+          "name": "formName",
+          "placeholder": "Name",
+          "validation": "required",
+          "order": "1",
+          "class": "col-6"
+        },
+        {
+          "label": "Company",
+          "type": "Input",
+          "name": "formCompanyName",
+          "placeholder": "Name",
+          "validation": "required",
+          "order": "2",
+          "class": "col-6"
+        },
+        {
+          "label": "Email",
+          "type": "Input",
+          "name": "formEmail",
+          "placeholder": "Name",
+          "validation": "required",
+          "order": "3",
+          "class": "col-6"
+        },
+        {
+          "label": "Message",
+          "type": "Input",
+          "name": "formMessage",
+          "placeholder": "Name",
+          "validation": "required",
+          "order": "4",
+          "class": "col-6"
+        },
+        {
+          "label": "Submit",
+          "type": "Input",
+          "placeholder": "Name",
+          "validation": "required",
+          "order": "5",
+          "class": "col-6"
+        }
+      ]
+    }
+  },
+  {
+    "name": "ServicesComponent",
+    "type": "Input",
+    "label": "Services",
+    "placeholder": "Services",
+    "validation": "required",
+    "order": "1",
+    "class": "col-12"
+  },
+  {
+    "type": "SocialComponent",
+    "label": "Social",
+    "name": "social",
+    "social": {
+      "media": [
+        {
+          "name": "Facebook",
+          "icon": "https://img.icons8.com/fluent/96/facebook-new.png",
+          "url": ""
+        },
+        {
+          "name": "Instagram",
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/1200px-Instagram_logo_2016.svg.png",
+          "url": ""
+        },
+        {
+          "name": "Whatsapp",
+          "icon": "https://cdn3.iconfinder.com/data/icons/social-network-30/512/social-01-512.png",
+          "url": ""
+        },
+        {
+          "name": "Email",
+          "icon": "https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-email-512.png",
+          "url": ""
+        },
+        {
+          "name": "SMS",
+          "icon": "https://cdn4.iconfinder.com/data/icons/chat-messages-1/128/Chat_Messages_sms_mobile_phone-512.png",
+          "url": ""
+        },
+        {
+          "name": "FB Messenger",
+          "icon": "https://cdn2.iconfinder.com/data/icons/social-icons-33/128/Facebook_Messenger-512.png",
+          "url": ""
+        }
+      ]
+    }
+  }
+]

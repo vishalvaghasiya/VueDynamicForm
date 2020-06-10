@@ -1,14 +1,14 @@
 <template>
     <div class="hello">
-        <h1>Dynamic Form Try</h1>
-        <p>To be develop Dynamic Form Try</p>
-        <form-builder :config="formConfig"></form-builder>
+        <!--        <form-builder :config="formConfig"></form-builder>-->
+        <card-builder :config="formConfig"></card-builder>
     </div>
 </template>
 
 <script>
-    import Config from '../config/formConfig.json'
-    import formBuilder from "./formBuilder";
+    import Config from '../config/cardConfig.json'
+    // import formBuilder from "./formBuilder";
+    import cardBuilder from "./cardBuilder";
 
     export default {
         name: 'HelloWorld',
@@ -21,7 +21,8 @@
             }
         },
         components: {
-            formBuilder
+            // formBuilder
+            cardBuilder
         }
     }
 </script>

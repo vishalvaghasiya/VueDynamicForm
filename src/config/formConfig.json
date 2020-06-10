@@ -3,7 +3,8 @@
     "type": "Input",
     "label": "First Name",
     "name": "firstName",
-    "validation": "required"
+    "validation": "required",
+    "class": ""
   },
   {
     "type": "Input",
@@ -18,7 +19,7 @@
     "validation": "required | email"
   },
   {
-    "type" : "Checkbox",
+    "type": "Checkbox",
     "label": "Do You like Vue?",
     "name": "like vue"
   },
@@ -30,7 +31,7 @@
       "options": [
         {
           "value": "1",
-          "label" : "vue js"
+          "label": "Vue js"
         },
         {
           "value": "2",

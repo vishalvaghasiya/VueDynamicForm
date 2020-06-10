@@ -1,15 +1,12 @@
 [
   {
     "name": "Business Logo",
-    "form_filed_config": {
-      "order": "1",
-      "class": "col-12",
-      "type": "Input",
-      "label": "Business Logo",
-      "name": "businessLogo",
-      "placeholder": "upload business logo",
-      "validation": "required"
-    },
+    "order": "1",
+    "class": "col-12",
+    "type": "Input",
+    "label": "Business Logo",
+    "placeholder": "upload business logo",
+    "validation": "required",
     "datatype": {
       "type": "image",
       "size": {

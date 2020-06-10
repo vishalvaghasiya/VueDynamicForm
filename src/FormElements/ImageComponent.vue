@@ -1,12 +1,12 @@
 <template>
     <div>
-        <input @input="$emit('input', $event.target.value)" />
+        <input type="image">
     </div>
 </template>
 
 <script>
     export default {
-        name: "Input"
+        name: "ImageComponent",
     }
 </script>
 
