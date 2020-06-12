@@ -99,18 +99,7 @@
     "validation": "required",
     "class": "col-6"
   },
-  {
-    "order": "5",
-    "label": "About Us",
-    "show": "TextComponent",
-    "type": "text",
-    "default": "About Us",
-    "value": "",
-    "name": "aboutUs",
-    "placeholder": "About Us",
-    "validation": "required",
-    "class": "col-6"
-  },
+
   {
     "order": "6",
     "label": "About SubHeading",
@@ -132,18 +121,6 @@
     "value": "",
     "name": "aboutSubHeading",
     "placeholder": "About SubHeading",
-    "validation": "required",
-    "class": "col-6"
-  },
-  {
-    "order": "8",
-    "show": "TextComponent",
-    "type": "text",
-    "name": "servicesTitle",
-    "label": "Services Title",
-    "placeholder": "Services Title",
-    "default": "Services Title",
-    "value": "",
     "validation": "required",
     "class": "col-6"
   },

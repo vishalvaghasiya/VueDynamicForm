@@ -15,6 +15,33 @@
                 <div class="card rounded-top-left-lg rounded-bottom-right-lg mt-6">
                     <div class="card-body">
                         <h6 class="text-center text-uppercase text-warning">Form</h6>
+                        <div class="row ml-0 mb-3">
+                            <ul class="nav nav-tabs">
+                                <li class="nav-item">
+                                    <button class="nav-link btn btn-link" data-toggle="tab">
+                                        <!--
+                                        v-bind:class="{ active : activeBilling}"
+                                            v-on:click="showBilling()"
+                                           -->
+                                        Basic
+                                    </button>
+                                </li>
+                                <li class="nav-item">
+                                    <button class="nav-link btn btn-link" data-toggle="tab">
+                                        <!--v-bind:class="{ active: activeCompany}"
+                                        v-on:click="showCompany()"-->
+                                        custom
+                                    </button>
+                                </li>
+                                <li class="nav-item">
+                                    <button class="nav-link btn btn-link" data-toggle="tab">
+                                        <!--v-bind:class="{ active: activeCompany}"
+                                        v-on:click="showCompany()"-->
+                                        Social
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
                         <form>
                             <div class="form-inline form-group" v-for="(field , index) in orignalData" :key="index">
                                 <label>{{field.label}}</label>
