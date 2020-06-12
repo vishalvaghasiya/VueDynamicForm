@@ -1,11 +1,20 @@
 <template>
     <div>
-        <label for="phone">Enter your phone number:</label>
+        <label :for="name" v-if="labelName">{{labelName}}
+            <span :title="title" v-if="title"></span></label>
 
-        <input type="tel" id="phone" name="phone"
-               pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-               required>
+        <input :id="id"
+               :name="name"
+               :pattern="pattern"
+               :placeholder="placeholder"
+               :readonly="readonlyData"
+               :class="inputClass"
+               type="tel"
+               v-model="nameEmit"
+               required
+               v-on:change="callback">
 
+        <br>
         <small>Format: 123-456-7890</small>
 
     </div>
@@ -13,7 +22,30 @@
 
 <script>
     export default {
-        name: "TelComponent"
+        name: "TelComponent",
+        props: {
+            name: {type: String},
+            id: {type: String},
+            placeholder: {type: String},
+            value: {type: String},
+            labelName: {type: String},
+            pattern: {type: String},
+            classStyle: {type: String},
+            inputClass: {type: String},
+            title: {type: String},
+            readonlyData: {type: Boolean}
+        },
+        data() {
+            return {
+                nameEmit: null,
+            }
+        },
+        methods: {
+            callback() {
+                this.$emit('callback', this.nameEmit)
+
+            }
+        }
     }
 </script>
 

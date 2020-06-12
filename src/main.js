@@ -5,6 +5,7 @@ import Routes from "./routes";
 
 Vue.config.productionTip = false
 
+
 Vue.use(VueRouter);
 /*const routeConst = new VueRouter();*/
 const routeConst = new VueRouter({

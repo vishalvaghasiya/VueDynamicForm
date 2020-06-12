@@ -11,7 +11,7 @@
                :readonly="readonlyData"
                :class="inputClass"
                required
-               type="text"
+               :type="type"
                v-model="nameEmit"
                v-on:change="callback">
     </div>
@@ -23,6 +23,7 @@
         props: {
             name: {type: String},
             id: {type: String},
+            type: {type: String},
             placeholder: {type: String},
             value: {type: String},
             labelName: {type: String},

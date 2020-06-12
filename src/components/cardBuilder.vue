@@ -16,17 +16,20 @@
                     <div class="card-body">
                         <h6 class="text-center text-uppercase text-warning">Form</h6>
                         <form>
-                            <div class="form-group" v-for="(field , index) in orignalData" :key="index">
-                                <label>{{field.label}} {{index}} </label>
+                            <div class="form-inline form-group" v-for="(field , index) in orignalData" :key="index">
+                                <label>{{field.label}}</label>
                                 <component :is="field.show"
-                                           :name="field.name"
+                                           :label="field.label"
                                            :class="field.class"
+                                           :name="field.name"
+                                           :type="field.type"
+                                           :pattern="field.pattern"
                                            :params="field.params"
-                                           :custom="field.custom"
                                            :social="field.social"
                                            :data-vv-as="field.label"
                                            v-on:callback="setProp($event , 'value' , index)">
                                 </component>
+                                <!--:custom="field.custom"-->
                             </div>
                         </form>
                     </div>
@@ -37,7 +40,7 @@
                 <div class="card rounded-top-left-lg rounded-bottom-right-lg mt-6">
                     <div class="card-body">
                         <h6 class="text-center text-uppercase text-warning">Preview</h6>
-                        <p class="display-4 font-weight-bold text-center">Preview data</p>
+                        <!--<p class="display-4 font-weight-bold text-center">Preview data</p>-->
                         <div>
                             <!--<div v-for="(column , index) in columns" :key="index">
                                 {{column.defaultVal.name}}
@@ -46,12 +49,9 @@
                                     {{column}}
                                 </div>
                             </div>-->
-                            <pre></pre>
-                            <!--                            <pre>{{columns}}</pre>-->
-                            <hr>
-                            <hr>
+                            <!--<pre>{{columns}}</pre>-->
                             <div v-for="(column , index) in orignalData" :key="index">
-                                <div v-if="index === 0" class="text-center">
+                                <div v-if="column.order == 0" class="text-center">
                                     <div v-if="column.value === '' ">
                                         <img :src="column.default" alt="logo" class="img-thumbnail"
                                              :width="column.datatype.size.width"
@@ -77,21 +77,37 @@
                                         >
                                     </div>
                                 </div>
-                                <div v-if="index !== 0 && index !== 1" class="text-left mt-2">
+                                <div v-if="index === 2" class="text-center">
+                                    <div v-if="column.value === '' ">
+                                        <img :src="column.default" alt="logo" class="img-thumbnail"
+                                             :width="column.datatype.size.width"
+                                             :height="column.datatype.size.height">
+                                    </div>
+                                    <div v-else>
+                                        <img :src="column.value" alt="logo" class="img-thumbnail"
+                                             :width="column.datatype.size.width"
+                                             :height="column.datatype.size.height"
+                                        >
+                                    </div>
+                                </div>
+                                <div v-if="index !== 0 && index !== 1 && index !== 2" class="text-left mt-2">
                                     <!--<div v-for="(col , key) in column" :key="key">
                                         <div v-if="key === 'name'">
                                             {{key}}:{{col}}
                                         </div>
                                     </div>-->
                                     <div v-if="column.value === '' ">
-                                        <h3 class="text-center">
-                                            {{column.label}}: <u>{{column.default}}</u>
-                                        </h3>
+                                        <h4 class="text-center">
+                                            <!--{{column.label}}:-->
+                                            {{column.default}}
+                                        </h4>
+
                                     </div>
                                     <div v-else>
-                                        <h3>
-                                            {{column.label}}: <u>{{column.value}}</u>
-                                        </h3>
+                                        <h4 class="text-center">
+                                            <!--{{column.label}}:-->
+                                            {{column.value}}
+                                        </h4>
                                     </div>
                                 </div>
                                 <!--                                {{column}}-->
@@ -108,20 +124,24 @@
     import Config from '../config/cardConfig.json'
     import TextComponent from "../FormElements/TextComponent";
     import CheckboxComponent from "../FormElements/CheckboxComponent";
-    import CustomComponent from "../FormElements/CustomComponent";
+    // import CustomComponent from "../FormElements/CustomComponent";
     import ImageComponent from "../FormElements/ImageComponent";
     import RadioComponent from "../FormElements/RadioComponent";
     import SocialComponent from "../FormElements/SocialComponent";
+    import TelComponent from "../FormElements/TelComponent";
+    import TextAreaComponent from "../FormElements/TextAreaComponent";
 
     export default {
         name: "formBuilder",
         components: {
             TextComponent,
+            TextAreaComponent,
             CheckboxComponent,
-            CustomComponent,
+            // CustomComponent,
             ImageComponent,
             RadioComponent,
-            SocialComponent
+            SocialComponent,
+            TelComponent,
         },
         data() {
             return {
