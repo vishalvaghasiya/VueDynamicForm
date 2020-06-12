@@ -1,0 +1,12 @@
+[
+  {
+    "title": "id",
+    "type": "integerIncrements",
+    "size": "11",
+    "isNotNull": true,
+    "isUnsigned": false,
+    "isAutoIncrement": true,
+    "index": "PRIMARY",
+    "defaultVal": ""
+  }
+]

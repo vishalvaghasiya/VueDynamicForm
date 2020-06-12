@@ -1,16 +1,12 @@
 <template>
     <div class="hello">
-        <!--<form-builder :config="formConfig"></form-builder>-->
-<!--        <try-page></try-page>-->
-        <card-builder :config="formConfig"></card-builder>
+        <form-builder :config="formConfig"></form-builder>
     </div>
 </template>
 
 <script>
-    import Config from '../config/cardConfig.json'
-    // import formBuilder from "./formBuilder";
-    import cardBuilder from "./cardBuilder";
-    // import tryPage from "./tryPage";
+    import Config from '../config/formConfig.json'
+    import formBuilder from "./formBuilder";
 
     export default {
         name: 'HelloWorld',
@@ -18,9 +14,7 @@
             msg: String
         },
         components: {
-            cardBuilder
-            // formBuilder
-            // tryPage
+            formBuilder
         },
         computed: {
             formConfig() {
@@ -28,7 +22,7 @@
             }
         },
     }
-</script>
+</script>ś
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>

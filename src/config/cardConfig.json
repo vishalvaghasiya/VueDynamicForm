@@ -1,9 +1,12 @@
 [
   {
-    "type": "ImageComponent",
+    "showWhich": "ImageComponent",
+    "type": "Image",
     "label": "Business Logo",
     "name": "businessLogo",
     "placeholder": "upload business logo",
+    "default": "https://img.freepik.com/free-vector/photography-business-logo-icon_23-2147491668.jpg",
+    "value": "",
     "validation": "required",
     "order": "1",
     "class": "col-12",
@@ -18,9 +21,11 @@
     }
   },
   {
-    "type": "InputComponent",
+    "type": "Input",
     "label": "Business Name",
     "name": "businessName",
+    "default": "Business Name",
+    "value": "",
     "placeholder": "Your Business Name",
     "validation": "required",
     "order": "2",
@@ -30,6 +35,7 @@
     "type": "CustomComponent",
     "label": "Custom",
     "name": "custom",
+    "default": "",
     "custom": {
       "options": [
         {

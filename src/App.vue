@@ -1,28 +1,23 @@
 <template>
-  <div id="app">
-<!--    <img alt="Vue logo" src="./assets/logo.png">-->
-    <Index msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div id="app">
+        <!--    <img alt="Vue logo" src="./assets/logo.png">-->
+        <router-view></router-view>
+    </div>
 </template>
 
 <script>
-import Index from './components/index.vue'
-
-export default {
-  name: 'App',
-  components: {
-    Index
-  }
-}
+    export default {
+        name: 'App',
+    }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    #app {
+        font-family: Avenir, Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
 
-  color: #2c3e50;
-  margin-top: 60px;
-}
+        color: #2c3e50;
+        margin-top: 60px;
+    }
 </style>
