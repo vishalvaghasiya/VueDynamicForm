@@ -13,12 +13,7 @@
                required
                type="text"
                v-model="nameEmit"
-               @input="$emit('input', $event.target.value)">
-               <!--v-on:change="callback"-->
-
-
-        <!--<input @input="$emit('input', $event.target.value)"
-               class="form-control form-control-sm"/>-->
+               v-on:change="callback">
     </div>
 </template>
 

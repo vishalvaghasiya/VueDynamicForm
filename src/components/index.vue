@@ -1,15 +1,15 @@
 <template>
     <div class="hello">
         <!--<form-builder :config="formConfig"></form-builder>-->
-<!--        <try-page></try-page>-->
-        <card-builder :config="formConfig"></card-builder>
+        <!--<try-page></try-page>-->
+        <!--<card-builder :config="formConfig"></card-builder>-->
     </div>
 </template>
 
 <script>
-    import Config from '../config/cardConfig.json'
+    // import Config from '../config/cardConfig.json'
     // import formBuilder from "./formBuilder";
-    import cardBuilder from "./cardBuilder";
+    // import cardBuilder from "./cardBuilder";
     // import tryPage from "./tryPage";
 
     export default {
@@ -18,14 +18,14 @@
             msg: String
         },
         components: {
-            cardBuilder
+            // cardBuilder
             // formBuilder
             // tryPage
         },
         computed: {
-            formConfig() {
-                return Config
-            }
+            // formConfig() {
+            //     return Config
+            // }
         },
     }
 </script>

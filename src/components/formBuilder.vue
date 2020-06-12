@@ -53,13 +53,14 @@
 
 <script>
     import Vue from 'vue';
+    import Config from '../config/formConfig.json'
     import Input from "../FormElements/TextComponent";
     import Checkbox from "../FormElements/CheckboxComponent";
     import RadioButton from "../FormElements/RadioComponent";
 
     export default {
         name: "formBuilder",
-        props: ['config'],
+        // props: ['config'],
         components: {
             Input,
             Checkbox,
@@ -67,6 +68,7 @@
         },
         data() {
             return {
+                config: Config,
                 formValues: {},
             }
         },

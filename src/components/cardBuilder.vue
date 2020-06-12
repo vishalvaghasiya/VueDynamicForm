@@ -16,23 +16,17 @@
                     <div class="card-body">
                         <h6 class="text-center text-uppercase text-warning">Form</h6>
                         <form>
-                            <div class="form-group" v-for="(field , key) in orignalData" :key="key">
-                                <label>{{field.label}}</label>
-                                <component :is="field.showWhich"
+                            <div class="form-group" v-for="(field , index) in orignalData" :key="index">
+                                <label>{{field.label}} {{index}} </label>
+                                <component :is="field.show"
                                            :name="field.name"
                                            :class="field.class"
                                            :params="field.params"
                                            :custom="field.custom"
                                            :social="field.social"
                                            :data-vv-as="field.label"
-                                           @input="updateField($event, field.name, index)">
+                                           v-on:callback="setProp($event , 'value' , index)">
                                 </component>
-                            </div>
-                            <div class="newTableRow" v-for="(column , index) in columns" :key="column">
-                                <NameTextComponent :placeholder="column.title"
-                                                   :value="column.title"
-                                                   name="name"
-                                                   v-on:callback="setProp($event, 'title' , index)"></NameTextComponent>
                             </div>
                         </form>
                     </div>
@@ -45,20 +39,73 @@
                         <h6 class="text-center text-uppercase text-warning">Preview</h6>
                         <p class="display-4 font-weight-bold text-center">Preview data</p>
                         <div>
-                            <pre>{{columns}}</pre>
-                            <pre>{{orignalData}}</pre>
+                            <!--<div v-for="(column , index) in columns" :key="index">
+                                {{column.defaultVal.name}}
+                                <div v-if="index === 0">
+                                    {{column.value}}
+                                    {{column}}
+                                </div>
+                            </div>-->
+                            <pre></pre>
+                            <!--                            <pre>{{columns}}</pre>-->
+                            <hr>
+                            <hr>
+                            <div v-for="(column , index) in orignalData" :key="index">
+                                <div v-if="index === 0" class="text-center">
+                                    <div v-if="column.value === '' ">
+                                        <img :src="column.default" alt="logo" class="img-thumbnail"
+                                             :width="column.datatype.size.width"
+                                             :height="column.datatype.size.height">
+                                    </div>
+                                    <div v-else>
+                                        <img :src="column.value" alt="logo" class="img-thumbnail"
+                                             :width="column.datatype.size.width"
+                                             :height="column.datatype.size.height"
+                                        >
+                                    </div>
+                                </div>
+                                <div v-if="index === 1" class="text-center">
+                                    <div v-if="column.value === '' ">
+                                        <img :src="column.default" alt="logo" class="img-thumbnail"
+                                             :width="column.datatype.size.width"
+                                             :height="column.datatype.size.height">
+                                    </div>
+                                    <div v-else>
+                                        <img :src="column.value" alt="logo" class="img-thumbnail"
+                                             :width="column.datatype.size.width"
+                                             :height="column.datatype.size.height"
+                                        >
+                                    </div>
+                                </div>
+                                <div v-if="index !== 0 && index !== 1" class="text-left mt-2">
+                                    <!--<div v-for="(col , key) in column" :key="key">
+                                        <div v-if="key === 'name'">
+                                            {{key}}:{{col}}
+                                        </div>
+                                    </div>-->
+                                    <div v-if="column.value === '' ">
+                                        <h3 class="text-center">
+                                            {{column.label}}: <u>{{column.default}}</u>
+                                        </h3>
+                                    </div>
+                                    <div v-else>
+                                        <h3>
+                                            {{column.label}}: <u>{{column.value}}</u>
+                                        </h3>
+                                    </div>
+                                </div>
+                                <!--                                {{column}}-->
+                            </div>
+                            <!--<pre>{{orignalData}}</pre>-->
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </template>
-
-
 <script>
-    // import Vue from 'vue';
+    import Config from '../config/cardConfig.json'
     import TextComponent from "../FormElements/TextComponent";
     import CheckboxComponent from "../FormElements/CheckboxComponent";
     import CustomComponent from "../FormElements/CustomComponent";
@@ -68,9 +115,8 @@
 
     export default {
         name: "formBuilder",
-        props: ['config'],
         components: {
-            NameTextComponent: TextComponent,
+            TextComponent,
             CheckboxComponent,
             CustomComponent,
             ImageComponent,
@@ -79,54 +125,21 @@
         },
         data() {
             return {
-                orignalData: this.config,
-                columns: [
-                    {
-                        title: 'id',
-                        type: 'integerIncrements',
-                        size: '11',
-                        isNotNull: true,
-                        isUnsigned: false,
-                        isAutoIncrement: true,
-                        index: 'PRIMARY',
-                        defaultVal: ''
-                    }
-                ],
+                orignalData: Config,
             }
         },
         methods: {
-
-            /*updateField(field, value) {
-                this.formValues[field] = value;
-            },
-            input(value, field, index) {
-                this.orignalData[index][field] = value;
-            },
-            */
-            setProp(numb, prop, index) {
-                if (this.columns[index] !== undefined) {
-                    this.columns[index][prop] = numb;
-                    alert(this.columns[index][prop]);
+            setProp(value, props, index) {
+                console.log(value);
+                console.log(props);
+                console.log(index);
+                if (this.orignalData[index] !== undefined) {
+                    this.orignalData[index][props] = value;
                 }
-                //todo: Onchange Object data save in array
-            },
-            /*imageShow(value, prop, index) {
-                alert(this.config.length);
-                if (this.config.length > 1) {
-                    this.config[index][prop] = value
-                }
-            }*/
-
+            }
         },
-        /* Output */
-        /*created() {
-            this.config.map(f => {
-                Vue.set(this.formValues, f.name, f.default)
-            })
-        }*/
     }
 </script>
 
 <style scoped>
-
 </style>

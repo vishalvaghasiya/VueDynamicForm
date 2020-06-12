@@ -1,10 +1,10 @@
-import index from "./components/index";
 import tryPage from "./components/tryPage";
-import formIndex from "./components/formIndex";
+import formBuilder from "./components/formBuilder";
+import cardBuilder from "./components/cardBuilder";
 
 export default [
-    {path: '/', component: index},
-    {path: '/form', component: formIndex},
+    {path: '/', component: cardBuilder},
+    {path: '/form', component: formBuilder},
     {path: '/try', component: tryPage},
 ]
 
